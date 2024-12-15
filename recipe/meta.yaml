@@ -1,13 +1,13 @@
 {% set name = "txl-local-contents" %}
-{% set version = "0.2.14" %}
+{% set version = "0.2.15" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/txl_local_contents-{{ version }}.tar.gz
-  sha256: cf7414b666a87da02fc17ec71300e69dce4576d76d05381c1611dc78349c06f3
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/txl_local_contents-{{ version }}.tar.gz
+  sha256: fa5950cbf6a9aba365d6a2360c1230f4339e9545322dfae36129b9cc1ba14352
 
 build:
   noarch: python
@@ -23,7 +23,7 @@ requirements:
     - python >=3.10
     - txl >=0.2.18,<0.3.0
     - anyio >=3.7.0,<5
-    - jupyter_ydoc >=2.0.0,<3.0.0
+    - jupyter_ydoc >=3.0.2,<4.0.0
 
 test:
   # `pip check` was disabled, see: https://github.com/conda-forge/staged-recipes/pull/26869
