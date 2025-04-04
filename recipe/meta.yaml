@@ -1,6 +1,6 @@
-{% set python_min = '3.10' %}
+{% set python_min = "3.10" %}
 {% set name = "txl-local-contents" %}
-{% set version = "0.2.15" %}
+{% set version = "0.3.2" %}
 
 package:
   name: {{ name|lower }}
@@ -8,11 +8,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/txl_local_contents-{{ version }}.tar.gz
-  sha256: fa5950cbf6a9aba365d6a2360c1230f4339e9545322dfae36129b9cc1ba14352
+  sha256: c3f120de6f19e1881ceedb6e2ede55fba48735caea403fcf3e0de1e2122eac88
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
