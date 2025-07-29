@@ -1,6 +1,6 @@
-{% set python_min = '3.10' %}
+{% set python_min = "3.10" %}
 {% set name = "txl-local-contents" %}
-{% set version = "0.2.15" %}
+{% set version = "0.3.6" %}
 
 package:
   name: {{ name|lower }}
@@ -8,11 +8,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/txl_local_contents-{{ version }}.tar.gz
-  sha256: fa5950cbf6a9aba365d6a2360c1230f4339e9545322dfae36129b9cc1ba14352
+  sha256: ca57b993b2294064ae015a96350f8bca8f76288f3fa52616e62ef5173f3c43ce
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
@@ -22,19 +22,16 @@ requirements:
     - hatchling
   run:
     - python >={{ python_min }}
-    - txl >=0.2.18,<0.3.0
+    - txl =0.3.2
     - anyio >=3.7.0,<5
     - jupyter_ydoc >=3.0.2,<4.0.0
 
 test:
-  # `pip check` was disabled, see: https://github.com/conda-forge/staged-recipes/pull/26869
-  #
-  # requires:
-  #   - pip
-  # commands:
-  #   - pip check
   requires:
+    - pip
     - python {{ python_min }}
+  commands:
+    - pip check
   imports:
     - txl_local_contents
 
