@@ -22,17 +22,15 @@ requirements:
     - hatchling
   run:
     - python >={{ python_min }}
-    - txl >=0.2.18,<0.3.0
+    - txl =0.3.2
     - anyio >=3.7.0,<5
     - jupyter_ydoc >=3.0.2,<4.0.0
 
 test:
-  # `pip check` was disabled, see: https://github.com/conda-forge/staged-recipes/pull/26869
-  #
-  # requires:
-  #   - pip
-  # commands:
-  #   - pip check
+  requires:
+    - pip
+  commands:
+    - pip check
   requires:
     - python {{ python_min }}
   imports:
